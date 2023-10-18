@@ -1,7 +1,7 @@
 # Specialty Coffee Production and Traceability Platform
 
 
-![](specialty coffee.jpg)
+![](specialty_coffee.jpg)
 
 Specialty Coffee Production and Traceability Platform is a comprehensive tool for managing all phases of coffee production, from georeferenced field mapping with terrain slope and sun orientation data to tracking daily agrometeorological data. Our platform also offers features like sequential water balance calculations, coffee classification according to the SCAA protocol, and support for quality contests with mobile device compatibility.
 
@@ -13,6 +13,8 @@ Consumers are actively seeking authentic experiences. This includes not only the
 Perception of peculiarity that translates into extra earnings.
 Consumers indoctrinated into seasonality, vintage, origin, competitions. The world of coffee becomes intimate and personal.
 
+![](history.png)
+
 ## Why traceability matters to farmers?
 Adding value to the product.
 Recording of crop management and weather events.
@@ -20,6 +22,8 @@ Strengthening the brand (individual and collective).
 Facilitates obtaining certifications.
 Enables the Experiment - Discovery - Replication cycle.
 Promotes communication and synergy in the production chain.
+
+![traceability](supply_chain.jpg)
 
 ## Technical Characteristics
 - Multiplatform
@@ -51,6 +55,7 @@ Promotes communication and synergy in the production chain.
 - Create and manage field plots with georeferenced data.
 - Record terrain slope and sun orientation information.
 - Plan your coffee planting strategies with precision.
+![](land.png)
 
 ### Management of Coffee Production
 - Efficiently record all management activities carried out in your coffee fields.
@@ -71,6 +76,8 @@ Promotes communication and synergy in the production chain.
 - Monitor weather conditions to make informed choices during the cultivation process.
 - Management Conditions forecast
 
+![](dashboard.png)
+
 ### Sequential Water Balance
 - Calculate the sequential water balance of your coffee crops.
 - Ensure optimal water management throughout the cultivation cycle.
@@ -78,6 +85,8 @@ Promotes communication and synergy in the production chain.
 ### Coffee Classification (SCAA Protocol)
 - Utilize our exclusive module to classify coffee beans according to the SCAA protocol.
 - Maintain quality standards and ensure consistency in coffee grading.
+
+![](classification.png)
 
 ### Quality Contests (SCAA Protocol)
 - SCAA cupping protocol
@@ -92,12 +101,16 @@ Promotes communication and synergy in the production chain.
 - Exclusive rose of flavours
 - Results integrated with lot traceability
 
+![](SCAA_protocol.png)
+
 ### Exclusive Rose of Flavours
 - Visual flavor identification
 - Simplified nomenclature
 - Highlights the predominance of each flavor
 - Search and filter by flavor
 - Statistics operations with flavors values
+
+![](rose_of_flavors.png)
 
 ### Traceability and Chain of Custody
 - Guarantee of Origin and Quality.
