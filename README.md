@@ -110,6 +110,7 @@ Promotes communication and synergy in the production chain.
 ## Getting Started
 
 To get started with our platform, please visit [YourPlatformURL](https://www.yourplatform.com) and sign up for an account. We offer extensive documentation and support to help you make the most of our features.
+Prezi presentation: https://prezi.com/view/t7RAX5TOMPJehDvBL7sk/
 
 ## Contributing
 
