@@ -2,7 +2,23 @@
 
 Specialty Coffee Production and Traceability Platform is a comprehensive tool for managing all phases of coffee production, from georeferenced field mapping with terrain slope and sun orientation data to tracking daily agrometeorological data. Our platform also offers features like sequential water balance calculations, coffee classification according to the SCAA protocol, and support for quality contests with mobile device compatibility.
 
-## Characteristics
+## Why traceability matters to consummers?
+Strong attractiveness and demand for sustainable products with guaranteed quality and origin.
+No more advertising claims (gourmet, premium, coffeehouse-style, etc.)
+Shows transparency to the consumer and tells an authentic story about a high-quality product.
+Consumers are actively seeking authentic experiences. This includes not only the coffee's flavour but also its story. Coffee becomes an emotional experience.
+Perception of peculiarity that translates into extra earnings.
+Consumers indoctrinated into seasonality, vintage, origin, competitions. The world of coffee becomes intimate and personal.
+
+## Why traceability matters to farmers?
+Adding value to the product.
+Recording of crop management and weather events.
+Strengthening the brand (individual and collective).
+Facilitates obtaining certifications.
+Enables the Experiment - Discovery - Replication cycle.
+Promotes communication and synergy in the production chain.
+
+## Technical Characteristics
 - Multiplatform
 - Mobile first
 - 24/7/365 availability
@@ -18,7 +34,7 @@ Specialty Coffee Production and Traceability Platform is a comprehensive tool fo
 
 ## Features
 
-### Coffee Association Management
+### Coffee cooperative Management
 - Members management
 - Registration of properties
 - monthly fees management 
@@ -38,10 +54,10 @@ Specialty Coffee Production and Traceability Platform is a comprehensive tool fo
 - Keep a log of tasks and interventions, ensuring better crop management.
 
 ### Agrometeorological Data
-- Data from public stations
+- Data from public stations: Public meteorological stations, micro-stations on properties, TRMM, SMAP.
 - Water balance / irrigation
 - Crop management conditions
-- Fertilization recommendations
+- Fertilization recommendation based on soil analysis
 - Weather forecast
 - Yield estimation
 - Disease alert 
@@ -50,6 +66,7 @@ Specialty Coffee Production and Traceability Platform is a comprehensive tool fo
 - Soil conservation
 - Daily recording of agrometeorological data for improved decision-making.
 - Monitor weather conditions to make informed choices during the cultivation process.
+- Management Conditions forecast
 
 ### Sequential Water Balance
 - Calculate the sequential water balance of your coffee crops.
@@ -80,8 +97,15 @@ Specialty Coffee Production and Traceability Platform is a comprehensive tool fo
 - Statistics operations with flavors values
 
 ### Traceability and Chain of Custody
-- Implement a robust traceability system from field to cup.
-- Track every batch's journey, ensuring transparency and quality assurance.
+- Guarantee of Origin and Quality.
+- Complies with the Technical Regulation on Identity and Quality for the Classification of Raw Bean Processed Coffee.
+- Sustainability of the Production Process.
+- Record of coffee history throughout the chain.
+- Consumers looking for experiences beyond the flavour of the coffee.
+- Chain of Custody.
+- Adding value to the traced product.
+- Identification of success factors and replication of processes.
+- Exclusive Rose of Flavours®.
 
 ## Getting Started
 
