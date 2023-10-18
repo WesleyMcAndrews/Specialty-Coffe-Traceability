@@ -1,5 +1,8 @@
 # Specialty Coffee Production and Traceability Platform
 
+![](land.png)
+![Specialty Coffee Traceability](../specialty coffee.jpg)
+
 Specialty Coffee Production and Traceability Platform is a comprehensive tool for managing all phases of coffee production, from georeferenced field mapping with terrain slope and sun orientation data to tracking daily agrometeorological data. Our platform also offers features like sequential water balance calculations, coffee classification according to the SCAA protocol, and support for quality contests with mobile device compatibility.
 
 ## Why traceability matters to consummers?
