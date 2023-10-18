@@ -1,0 +1,755 @@
+﻿<!DOCTYPE html>
+<!-- 
+Sistema: Sistema de Classificação e Rastreabilidade de Produtos Especiais
+Version: 1.0
+Author: Wesley McAndrews
+Website: http://www.mcandrews.com.br/
+-->
+<!--[if IE 8]> <html lang="pt-BR" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="pt-BR" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="pt-BR" class="no-js"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+   <meta charset="utf-8" />
+   <title>AgTracer | Rastreabilidade</title>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+   <meta content="" name="description" />
+   <meta content="" name="author" />
+   <meta name="MobileOptimized" content="320">
+   <!-- BEGIN GLOBAL MANDATORY STYLES -->          
+   <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+   <!-- END GLOBAL MANDATORY STYLES -->
+   <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
+   <link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+   <link href="assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css"/>
+   <!-- END PAGE LEVEL PLUGIN STYLES -->
+   <!-- BEGIN THEME STYLES --> 
+   <link href="assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/css/plugins.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/css/pages/timeline.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/css/pages/tasks.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+   <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
+   <!-- END THEME STYLES -->
+   <link rel="shortcut icon" href="favicon.ico" />
+   <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-68585485-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="page-header-fixed">
+	<!--<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>-->
+   <!-- BEGIN HEADER -->   
+   <div class="header navbar navbar-inverse navbar-fixed-top">
+      <!-- BEGIN TOP NAVIGATION BAR -->
+      <div class="header-inner">
+         <!-- BEGIN LOGO -->  
+         <a class="navbar-brand" href="http://www.agtracer.com" target="_blank" style="padding-top: 7px; padding-bottom: 7px;">
+         <img src="assets/img/AgTracer_Logo_small.png" alt="logo" class="non-img-responsive" style="height: 30px; widht: 140px;" />
+         </a>
+         <!-- END LOGO -->
+         <!-- BEGIN RESPONSIVE MENU TOGGLER --> 
+         <a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+         <img src="assets/img/menu-toggler.png" alt="" />
+         </a> 
+         <!-- END RESPONSIVE MENU TOGGLER -->
+         <!-- BEGIN TOP NAVIGATION MENU -->
+         <ul class="nav navbar-nav pull-right">
+            <!-- BEGIN NOTIFICATION DROPDOWN -->
+           
+            <!-- BEGIN INBOX DROPDOWN -->
+            
+            <!-- END INBOX DROPDOWN -->
+            <!-- BEGIN TODO DROPDOWN -->
+            
+            <!-- END TODO DROPDOWN -->
+			
+            <!-- BEGIN USER LOGIN DROPDOWN -->
+            <li class="dropdown user">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+               <img alt="" src="assets/img/avatar1_small.jpg"/>
+               <span class="username">{%USERNAME%}</span>
+               <i class="icon-angle-down"></i>
+               </a>
+               <ul class="dropdown-menu">
+                  
+                  <li><a href="javascript:;" id="trigger_fullscreen"><i class="icon-move"></i> Tela Cheia</a>
+                  </li>
+                  <li><a href="extra_lock.html"><i class="icon-lock"></i> Travar Tela</a>
+                  </li>
+                  <li><a href="javascript:;" id="PROFILELOGOUTLINK"><i class="icon-key"></i> Sair</a>
+                  </li>
+               </ul>
+            </li>
+            <!-- END USER LOGIN DROPDOWN -->
+         </ul>
+         <!-- END TOP NAVIGATION MENU -->
+      </div>
+      <!-- END TOP NAVIGATION BAR -->
+   </div>
+   <!-- END HEADER -->
+   <div class="clearfix"></div>
+   <!-- BEGIN CONTAINER -->
+   <div class="page-container">
+      <!-- BEGIN SIDEBAR -->
+      <div class="page-sidebar navbar-collapse collapse">
+         <!-- BEGIN SIDEBAR MENU -->        
+         <ul class="page-sidebar-menu">
+            <li>
+               <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+               <div class="sidebar-toggler hidden-phone"></div>
+               <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            </li>
+            <li>
+               <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+               <div class="sidebar-search" action="extra_search.html" method="POST">
+                  <div class="form-container">
+                     
+                  </div>
+               </div>
+               <!-- END RESPONSIVE QUICK SEARCH FORM -->
+            </li>
+			<li class="active ">
+               <a href="#">
+               <i class="icon-qrcode"></i> 
+               <span class="title">Rastreabilidade</span>
+			   <span class="selected"></span>
+               <span class="arrow open"></span>
+               </a>
+            </li>
+            <li>
+			   <a href="#">
+               <i class="icon-home"></i> 
+               <span class="title">Dashboard</span>
+               <span class="arrow "></span>
+               </a>
+            </li>
+			<li>
+               <a href="#">
+               <i class="icon-folder-open"></i> 
+               <span class="title">Cadastros</span>
+               <span class="arrow "></span>
+               </a>
+            </li>
+			<li class="">
+               <a href="#">
+               <i class="icon-user"></i> 
+               <span class="title">Usuários</span>
+               <span class="arrow "></span>
+               </a>
+            </li>
+            <li class="">
+               <a href="#">
+               <i class="icon-coffee"></i> 
+               <span class="title">Classificação</span>
+			   <span class="arrow "></span>
+               </a>
+            </li>
+			<li class="">
+               <a href="#">
+               <i class="icon-file-text"></i> 
+               <span class="title">Relatórios</span>
+               <span class="arrow "></span>
+               </a>
+            </li>
+            <li class="">
+               <a href="#">
+               <i class="icon-bar-chart"></i> 
+               <span class="title">Indicadores</span>
+			   <span class="arrow "></span>
+               </a>
+            </li>
+			<li class="">
+               <a href="#">
+               <i class="icon-trophy"></i> 
+               <span class="title">Concursos</span>
+			   <span class="arrow "></span>
+               </a>
+            </li>
+			<li class="last">
+               <a href="#">
+               <i class="icon-legal"></i> 
+               <span class="title">Leilões</span>
+			   <span class="arrow "></span>
+               </a>
+            </li>
+         </ul>
+         <!-- END SIDEBAR MENU -->
+      </div>
+      <!-- END SIDEBAR -->
+      <!-- BEGIN PAGE -->
+      <div class="page-content">
+         <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->               
+         <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                     <h4 class="modal-title">Modal title</h4>
+                  </div>
+                  <div class="modal-body">
+                     Widget settings form goes here
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn blue">Save changes</button>
+                     <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                  </div>
+               </div>
+               <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+         </div>
+         <!-- /.modal -->
+         <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+         <!-- BEGIN STYLE CUSTOMIZER -->
+         <div class="theme-panel hidden-xs hidden-sm">
+            <div class="toggler"></div>
+            <div class="toggler-close"></div>
+            <div class="theme-options">
+               <div class="theme-option theme-colors clearfix">
+                  <span>THEME COLOR</span>
+                  <ul>
+                     <li class="color-black current color-default" data-style="default"></li>
+                     <li class="color-blue" data-style="blue"></li>
+                     <li class="color-brown" data-style="brown"></li>
+                     <li class="color-purple" data-style="purple"></li>
+                     <li class="color-grey" data-style="grey"></li>
+                     <li class="color-white color-light" data-style="light"></li>
+                  </ul>
+               </div>
+               <div class="theme-option">
+                  <span>Layout</span>
+                  <select class="layout-option form-control input-small">
+                     <option value="fluid" selected="selected">Fluid</option>
+                     <option value="boxed">Boxed</option>
+                  </select>
+               </div>
+               <div class="theme-option">
+                  <span>Header</span>
+                  <select class="header-option form-control input-small">
+                     <option value="fixed" selected="selected">Fixed</option>
+                     <option value="default">Default</option>
+                  </select>
+               </div>
+               <div class="theme-option">
+                  <span>Sidebar</span>
+                  <select class="sidebar-option form-control input-small">
+                     <option value="fixed">Fixed</option>
+                     <option value="default" selected="selected">Default</option>
+                  </select>
+               </div>
+               <div class="theme-option">
+                  <span>Footer</span>
+                  <select class="footer-option form-control input-small">
+                     <option value="fixed">Fixed</option>
+                     <option value="default" selected="selected">Default</option>
+                  </select>
+               </div>
+            </div>
+         </div>
+         <!-- END BEGIN STYLE CUSTOMIZER -->            
+         <!-- BEGIN PAGE HEADER-->
+         <div class="row">
+            <div class="col-md-12">
+               <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+               <h3 class="page-title">
+                  Rastreabilidade <small>informações sobre o lote</small>
+               </h3>
+               <ul class="page-breadcrumb breadcrumb">
+                  <li class="btn-group">
+                     <button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                     <span>Actions</span> <i class="icon-angle-down"></i>
+                     </button>
+                     <ul class="dropdown-menu pull-right" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                     </ul>
+                  </li>
+                  <li>
+                     <i class="icon-home"></i>
+                     <a href="login.html">AgTracer</a> 
+                     <i class="icon-angle-right"></i>
+                  </li>
+                  <li>
+                     <a href="#">Rastreabilidade</a> 
+                  </li>
+               </ul>
+               <!-- END PAGE TITLE & BREADCRUMB-->
+            </div>
+         </div>
+         <!-- END PAGE HEADER-->
+         <!-- BEGIN PAGE CONTENT-->
+         <div class="row">
+            <div class="col-md-12 news-page blog-page">
+               <div class="row">
+			   <!--Info Produto-->
+                  <div class="col-md-3">
+                     <h3>Dados do Produto</h3>
+                     <div class="top-news">
+                        <a href="#" class="btn green">
+                        <span>Variedade</span>
+                        <em>Bourbom Amarelo</em>
+                        <em>
+                        <i class="icon-tags"></i>
+                        Organico, Irrigado
+                        </em>
+                        <i class="icon-music top-news-icon"></i>                             
+                        </a>
+                        <a href="#" class="btn yellow">
+                        <span>Método de Produção</span>
+                        <em>Natural</em>
+                        <em>
+                        <i class="icon-tags"></i>
+                        Terreiro Suspenso
+                        </em>
+                        <i class="icon-book top-news-icon"></i>                              
+                        </a>
+                        <a href="#" class="btn red">
+                        <span>Detalhes</span>
+                        <em>Altitude: 1200m</em>
+						<em>Safra: 2014/2015</em>
+                        <i class="icon-briefcase top-news-icon"></i>
+                        </a>
+                        <a href="#" class="btn blue">
+                        <span>Clima</span>
+                        <em>Ano: Chuvoso</em>
+                        <em>Temp: Acima da média</em>
+						<em>Temp: Acima da média</em>
+                        <i class="icon-globe top-news-icon"></i>                             
+                        </a>
+                     </div>
+                     <div class="space20"></div>
+                     <h3>Certificações</h3>
+                     <ul class="list-inline sidebar-tags">
+                        <li><a href="#"><i class="icon-check"></i> UTZ</a></li>
+                        <li><a href="#"><i class="icon-check"></i> 4C</a></li>
+                        <li><a href="#"><i class="icon-check"></i> Rainforest</a></li>
+                        <li><a href="#"><i class="icon-check"></i> IBD(orgânico)</a></li>
+                        <li><a href="#"><i class="icon-check"></i> Nespresso</a></li>
+                     </ul>
+                     <div class="space20"></div>
+                     <h3>Tabs</h3>
+                     <div class="tabbable tabbable-custom">
+                        <ul class="nav nav-tabs">
+                           <li class="active"><a data-toggle="tab" href="#tab_1_1">Section 1</a></li>
+                           <li ><a data-toggle="tab" href="#tab_1_2">Section 2</a></li>
+                        </ul>
+                        <div class="tab-content">
+                           <div id="tab_1_1" class="tab-pane active">
+                              <p>I'm in Section 1.</p>
+                              <p>
+                                 Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+                              </p>
+                           </div>
+                           <div id="tab_1_2" class="tab-pane">
+                              <p>Howdy, I'm in Section 2.</p>
+                              <p>
+                                 Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="space20"></div>
+                     <h3>Recent Twitts</h3>
+                     <div class="blog-twitter">
+                        <div class="blog-twitter-block">
+                           <a href="">@keenthemes</a> 
+                           <p>At vero eos et accusamus et iusto odio.</p>
+                           <a href="#"><em>http://t.co/sBav7dm</em></a> 
+                           <span>5 hours ago</span>
+                           <i class="icon-twitter blog-twiiter-icon"></i>
+                        </div>
+                        <div class="blog-twitter-block">
+                           <a href="">@keenthemes</a> 
+                           <p>At vero eos et accusamus et iusto odio.</p>
+                           <a href="#"><em>http://t.co/sBav7dm</em></a> 
+                           <span>8 hours ago</span>
+                           <i class="icon-twitter blog-twiiter-icon"></i>
+                        </div>
+                        <div class="blog-twitter-block">
+                           <a href="">@keenthemes</a> 
+                           <p>At vero eos et accusamus et iusto odio.</p>
+                           <a href="#"><em>http://t.co/sBav7dm</em></a> 
+                           <span>12 hours ago</span>
+                           <i class="icon-twitter blog-twiiter-icon"></i>
+                        </div>
+                     </div>
+                     <div class="space20"></div>
+                     <h3>Flickr</h3>
+                     <ul class="list-inline blog-images">
+                        <li>
+                           <a class="fancybox-button" data-rel="fancybox-button" title="390 x 220 - keenthemes.com" href="assets/img/blog/1.jpg">
+                           <img alt="" src="assets/img/blog/1.jpg">
+                           </a>
+                        </li>
+                        <li><a href="#"><img alt="" src="assets/img/blog/2.jpg"></a></li>
+                        <li><a href="#"><img alt="" src="assets/img/blog/3.jpg"></a></li>
+                        <li><a href="#"><img alt="" src="assets/img/blog/4.jpg"></a></li>
+                        <li><a href="#"><img alt="" src="assets/img/blog/5.jpg"></a></li>
+                        <li><a href="#"><img alt="" src="assets/img/blog/6.jpg"></a></li>
+                        <li><a href="#"><img alt="" src="assets/img/blog/8.jpg"></a></li>
+                        <li><a href="#"><img alt="" src="assets/img/blog/10.jpg"></a></li>
+                        <li><a href="#"><img alt="" src="assets/img/blog/11.jpg"></a></li>
+                        <li><a href="#"><img alt="" src="assets/img/blog/1.jpg"></a></li>
+                        <li><a href="#"><img alt="" src="assets/img/blog/2.jpg"></a></li>
+                        <li><a href="#"><img alt="" src="assets/img/blog/7.jpg"></a></li>
+                     </ul>
+                  </div>
+				<!--Info Produtor-->
+                  <div class="col-md-9 blog-tag-data">
+                     <h3>Informações do Produtor</h3>
+                     <img src="assets/img/gallery/item_img2.jpg" class="img-responsive" alt="">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <ul class="list-inline blog-tags">
+                              <li>
+                                 <i class="icon-tags"></i> 
+                                 <a href="#">Technology</a> 
+                                 <a href="#">Education</a>
+                                 <a href="#">Internet</a>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="col-md-6 blog-tag-data-inner">
+                           <ul class="list-inline">
+                              <li><i class="icon-calendar"></i> <a href="#">April 16, 2013</a></li>
+                              <li><i class="icon-comments"></i> <a href="#">38 Comments</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="news-item-page">
+						<h4>Gilberto Curado - Fazenda Patrocínio</h4>
+						<h5>Pedregulho-SP Brasil</h5>
+                        <p>A família Curado chegou à região do município de Pedregulho-SP na década de 30. Os avós de Gilberto plantaram os primeiros pés de cafés apenas para o consumo próprio. Nesta época o principal produto da fazenda era o leite. Com o incremento da produção local de café, a família Curado também migrou para o café. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique dimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique dimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus.</p>
+                        <blockquote class="hero">
+                           <p>Produzo meu café como se fosse para minha família beber.</p>
+                            <small>Gilberto Curado, <cite title="Associação">produtor da Região da Alta Mogiana</cite></small>
+                        </blockquote>
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique dimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus.</p>
+                     </div>
+
+                   
+				   <h3>Linha do Tempo</h3>
+				   <hr>
+				   <ul class="timeline">
+					  <li class="timeline-yellow">
+						 <div class="timeline-time">
+							<!--<span class="date">4/10/13</span>-->
+							<span class="time">04/10/2013</span>
+						 </div>
+						 <div class="timeline-icon"><i class="icon-trophy"></i></div>
+						 <div class="timeline-body">
+							<h2>Colheita</h2>
+							<div class="timeline-content">
+							   <img class="timeline-img pull-left" src="assets/img/blog/2.jpg" alt="">
+							   Ricebean black-eyed pea maize scallion green bean spinach cabbage jicama bell pepper carrot onion corn plantain garbanzo. Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress.
+							   Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jicama bell pepper carrot onion corn plantain garbanzo. 
+							</div>
+							<div class="timeline-footer">
+							   <a href="#" class="nav-link pull-right">
+							   Read more <i class="m-icon-swapright m-icon-white"></i>                              
+							   </a>  
+							</div>
+						 </div>
+					  </li>
+					  <li class="timeline-blue">
+						 <div class="timeline-time">
+							<span class="time">04/10/13</span>
+						 </div>
+						 <div class="timeline-icon"><i class="icon-facetime-video"></i></div>
+						 <div class="timeline-body">
+							<h2>Secagem</h2>
+							<div class="timeline-content">
+							   <img class="timeline-img pull-right" src="assets/img/blog/1.jpg" alt="">
+							   Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi..
+							</div>
+							<div class="timeline-footer">
+							   <a href="#" class="nav-link">
+							   Read more <i class="m-icon-swapright m-icon-white"></i>                              
+							   </a>                         
+							</div>
+						 </div>
+					  </li>
+					  <li class="timeline-green">
+						 <div class="timeline-time">
+							<span class="time">14/10/13</span>
+						 </div>
+						 <div class="timeline-icon"><i class="icon-comments"></i></div>
+						 <div class="timeline-body">
+							<h2>Secador</h2>
+							<div class="timeline-content">
+							   <img class="timeline-img pull-left" src="assets/img/blog/3.jpg" alt="">
+							   Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Pea sprouts wattle seed rutabaga okra yarrow cress avocado grape radish bush tomato ricebean. Pea sprouts wattle seed rutabaga okra yarrow cress avocado grape radish bush tomato ricebean.
+							</div>
+							<div class="timeline-footer">
+							   <a href="#" class="nav-link">
+							   Read more <i class="m-icon-swapright m-icon-white"></i>                              
+							   </a>                        
+							</div>
+						 </div>
+					  </li>
+					  <li class="timeline-purple">
+						 <div class="timeline-time">
+							<span class="time">15/10/13</span>
+						 </div>
+						 <div class="timeline-icon"><i class="icon-music"></i></div>
+						 <div class="timeline-body">
+							<h2>Beneficiamento</h2>
+							<div class="timeline-content">
+							   <div class="scroller" data-height="175px" data-always-visible="1" data-rail-visible1="1">
+								  <p>
+									 <img class="timeline-img pull-right" src="assets/img/blog/4.jpg" alt="">
+									 Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi. coriander bitterleaf epazote radicchio shallot winter purslane collard.
+								  </p>
+								  <p>
+									 Coriander bitterleaf epazote radicchio shallot winter purslane collard.
+									 Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.
+								  </p>
+								  <p>
+									 <img class="timeline-img pull-left" src="assets/img/blog/6.jpg" alt="">                                    
+									 Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi radicchio shallot winter purslane collard greens spring onion squash lentil.
+								  </p>
+								  <p>
+									 Coriander bitterleaf epazote radicchio shallot winter purslane collard.
+									 Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.
+								  </p>
+							   </div>
+							</div>
+							<div class="timeline-footer">
+							   <a href="#" class="btn blue">
+							   Read more <i class="m-icon-swapright m-icon-white"></i>                              
+							   </a>                        
+							</div>
+						 </div>
+					  </li>
+					  <li class="timeline-red">
+						 <div class="timeline-time">
+							<span class="time">15/01/14</span>
+						 </div>
+						 <div class="timeline-icon"><i class="icon-rss"></i></div>
+						 <div class="timeline-body">
+							<h2>Classificação</h2>
+							<div class="timeline-content">
+							   <img class="timeline-img pull-left" src="assets/img/blog/5.jpg" alt="">
+							   Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jicama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.
+							</div>
+							<div class="timeline-footer">
+							   <a href="#" class="btn green pull-right">
+							   Read more <i class="m-icon-swapright m-icon-white"></i>                              
+							   </a>     
+							</div>
+						 </div>
+					  </li>
+					  <li class="timeline-grey">
+						 <div class="timeline-time">
+							<span class="time">05/03/14</span>
+						 </div>
+						 <div class="timeline-icon"><i class="icon-time"></i></div>
+						 <div class="timeline-body">
+							<h2>Exportação</h2>
+							<div class="timeline-content">
+							   Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.
+							</div>
+							<div class="timeline-footer">
+							   <a href="#" class="nav-link pull-right">
+							   Read more <i class="m-icon-swapright m-icon-white"></i>                              
+							   </a>     
+							</div>
+						 </div>
+					  </li>
+					  <li class="timeline-blue">
+						 <div class="timeline-time">
+							<span class="time">25/06/14</span>
+						 </div>
+						 <div class="timeline-icon"><i class="icon-bar-chart"></i></div>
+						 <div class="timeline-body">
+							<h2>Torra e Embalagem</h2>
+							<div class="timeline-content">
+							   <img class="timeline-img pull-left" src="assets/img/blog/2.jpg" alt="">
+							   Parsnip lotus root celery yarrow seakale tomato collard greens tigernut epazote ricebean melon tomatillo soybean chicory broccoli beet greens peanut salad. Lotus root burdock bell pepper chickweed shallot groundnut pea sprouts welsh onion wattle seed pea salsify turnip scallion peanut arugula bamboo shoot onion swiss chard.
+							</div>
+							<div class="timeline-footer">
+							   <a href="#" class="nav-link">
+							   Read more <i class="m-icon-swapright m-icon-white"></i>                              
+							   </a>     
+							</div>
+						 </div>
+					  </li>
+				   </ul>
+
+                  </div>
+
+               </div>
+            </div>
+         </div>
+		 <div class="row">
+			<div class="col-md-12">
+				<!--<div class="fb-comments" data-href="http://agtracer.com/rastreamento.html" data-width="100%"></div>-->
+				<div id="sns-share" style="display:none">
+					<div class="sns-share-buttons">
+						<div class="google-plus" style="float:right">
+							<g:plusone size="medium" href="http://agtracer.com/rastreamento.html"></g:plusone>
+						</div>
+						<div class="tweet-button" style="float:right">
+							<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://agtracer.com/rastreamento.html" data-text="AgTracer - Coffee traceability." data-count="horizontal">Tweet</a>	
+						</div>
+						<div class="fb-like" data-href="http://agtracer.com/rastreamento.html" data-send="true" data-width="100%" data-show-faces="false"></div>
+					</div>
+					<div class="facebook-comments">
+						<div class="fb-comments" data-href="http://agtracer.com/rastreamento.html" data-num-posts="4" data-width="100%"></div>
+					</div>
+				</div>
+			</div>	
+		 </div>	
+         <!-- END PAGE CONTENT-->
+      </div>
+      <!-- END PAGE -->
+   </div>
+   <!-- END CONTAINER -->
+   <!-- BEGIN FOOTER -->
+   <div class="footer">
+      <div class="footer-inner">
+         2015 &copy; AgTracer
+      </div>
+      <div class="footer-tools">
+         <span class="go-top">
+         <i class="icon-angle-up"></i>
+         </span>
+      </div>
+   </div>
+   <!-- END FOOTER -->
+   <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+   <!-- BEGIN CORE PLUGINS -->   
+   <!--[if lt IE 9]>
+   <script src="assets/plugins/respond.min.js"></script>
+   <script src="assets/plugins/excanvas.min.js"></script> 
+   <![endif]-->   
+   <script src="assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+   <script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>   
+   <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+   <script src="assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+   <script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+   <script src="assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript" ></script>
+   <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+   <script src="assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>  
+   <script src="assets/plugins/jquery.cookie.min.js" type="text/javascript"></script>
+   <script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript" ></script>
+   <!-- END CORE PLUGINS -->
+   <!-- BEGIN PAGE LEVEL PLUGINS -->
+   <script src="assets/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>   
+   <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
+   <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+   <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
+   <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
+   <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
+   <script src="assets/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>  
+   <script src="assets/plugins/flot/jquery.flot.js" type="text/javascript"></script>
+   <script src="assets/plugins/flot/jquery.flot.resize.js" type="text/javascript"></script>
+   <script src="assets/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
+   <script src="assets/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script>
+   <script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>     
+   <script src="assets/plugins/gritter/js/jquery.gritter.js" type="text/javascript"></script>
+   <!-- IMPORTANT! fullcalendar depends on jquery-ui-1.10.3.custom.min.js for drag & drop support -->
+   <script src="assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+   <script src="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js" type="text/javascript"></script>
+   <script src="assets/plugins/jquery.sparkline.min.js" type="text/javascript"></script>  
+   <!-- Highcharts -->
+   <script src="assets/plugins/highcharts/js/highcharts.js"></script>
+   <script src="assets/plugins/highcharts/js/modules/exporting.js"></script>
+   <!-- END PAGE LEVEL PLUGINS -->
+   <!-- BEGIN PAGE LEVEL SCRIPTS -->
+   <script src="assets/scripts/app.js" type="text/javascript"></script>
+   <script src="assets/scripts/index.js" type="text/javascript"></script>
+   <script src="assets/scripts/tasks.js" type="text/javascript"></script>        
+   <!--<script src="assets/scripts/social.js" type="text/javascript"></script>-->
+   <!-- END PAGE LEVEL SCRIPTS -->  
+   <script>
+      jQuery(document).ready(function() {    
+         App.init(); // initlayout and core plugins
+         Index.init();
+         Index.initJQVMAP(); // init index page's custom scripts
+         Index.initCalendar(); // init index page's custom scripts
+         Index.initCharts(); // init index page's custom scripts
+         Index.initChat();
+         Index.initMiniCharts();
+         Index.initDashboardDaterange();
+         Tasks.initDashboardWidget();
+		 //SocialMedia.init();
+      });
+   </script>
+    <script type="text/javascript">
+		/*<![CDATA[*/
+		jQuery(function($) {
+		var msie = navigator.appVersion.toLowerCase();
+		msie = (msie.indexOf('msie')>-1) ? parseInt(msie.replace(/.*msie[ ]/,'').match(/^[0-9]+/)) : 0;
+		if (msie == 0 || msie >= 8) {
+			$('#sns-share').show();
+			// google plus one
+			window.___gcfg = {
+				lang: 'pt_BR'
+			};
+			(function() {
+				var po = document.createElement('script');
+				po.type = 'text/javascript';
+				po.async = true;
+				po.src = 'https://apis.google.com/js/plusone.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(po, s);
+			})();
+			// twitter
+			!function(d,s,id){
+				var js,fjs=d.getElementsByTagName(s)[0],
+				p=/^http:/.test(d.location)?'http':'https';
+				if(!d.getElementById(id)){
+					js=d.createElement(s);
+					js.id=id;
+					js.async=true;
+					js.src=p+'://platform.twitter.com/widgets.js';
+					fjs.parentNode.insertBefore(js,fjs);
+				}
+			}(document, 'script', 'twitter-wjs');
+			// facebook
+			(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+			
+		}
+
+				
+		});
+		/*]]>*/
+</script>
+   <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

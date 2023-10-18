@@ -1,0 +1,750 @@
+﻿<!DOCTYPE html>
+<!-- 
+Sistema: Sistema de Classificação e Rastreabilidade de Produtos Especiais
+Version: 1.0
+Author: Wesley McAndrews
+Website: http://www.mcandrews.com.br/
+-->
+<!--[if IE 8]> <html lang="pt-BR" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="pt-BR" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="pt-BR" class="no-js"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+   <meta charset="utf-8" />
+   <title>AgTracer | Avaliação</title>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+   <meta content="" name="description" />
+   <meta content="" name="author" />
+   <meta name="MobileOptimized" content="320">
+   <!-- BEGIN GLOBAL MANDATORY STYLES -->          
+   <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+   <!-- END GLOBAL MANDATORY STYLES -->
+   <!-- BEGIN PAGE LEVEL STYLES -->
+   <link href="assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.css" rel="stylesheet"/>
+   <link rel="stylesheet" type="text/css" href="assets/plugins/gritter/css/jquery.gritter.css" />
+   <link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2_metro.css" />
+   <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
+   <link rel="stylesheet" type="text/css" href="assets/plugins/jquery-multi-select/css/multi-select.css" />
+   <!--<link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-switch/static/stylesheets/bootstrap-switch-metro.css"/>-->
+   <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-switch/static/stylesheets/bootstrap-switch.css"/>
+   <link rel="stylesheet" type="text/css" href="assets/plugins/jquery-tags-input/jquery.tagsinput.css" />
+   <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css"/>
+   <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-datepicker/css/datepicker.css"/>
+   <link rel="stylesheet" type="text/css" href="assets/css/editarAvaliacao.css"/>
+   <!-- END PAGE LEVEL STYLES -->
+   <!-- BEGIN THEME STYLES --> 
+   <link href="assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/css/plugins.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+   <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
+   <!--Prettify JQuery UI Sliders-->
+   <link href="assets/plugins/jquery-ui-slider-pips/jquery-ui-slider-pips.css" rel="stylesheet" type="text/css"/>
+   <link href="assets/plugins/jquery-ui-slider-pips/gradient.css" rel="stylesheet" type="text/css"/>
+   <!-- END THEME STYLES -->
+   <link rel="shortcut icon" href="favicon.ico" />
+   <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-68585485-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="page-header-fixed">
+   <!-- BEGIN HEADER -->   
+   <div class="header navbar navbar-inverse navbar-fixed-top">
+      <!-- BEGIN TOP NAVIGATION BAR -->
+      <div class="header-inner">
+         <!-- BEGIN LOGO -->  
+         <a class="navbar-brand" href="http://www.agtracer.com" target="_blank" style="padding-top: 7px; padding-bottom: 7px;">
+         <img src="assets/img/AgTracer_logo_small.png" alt="logo" class="non-img-responsive" style="height: 30px; widht: 140px;" />
+         </a>
+         <!-- END LOGO -->
+         <!-- BEGIN RESPONSIVE MENU TOGGLER --> 
+         <a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+         <img src="../wwwroot/assets/img/menu-toggler.png" alt="" />
+         </a> 
+         <!-- END RESPONSIVE MENU TOGGLER -->
+         <!-- BEGIN TOP NAVIGATION MENU -->
+         <ul class="nav navbar-nav pull-right">
+            <!-- BEGIN NOTIFICATION DROPDOWN -->
+           
+            <!-- BEGIN INBOX DROPDOWN -->
+            
+            <!-- END INBOX DROPDOWN -->
+            <!-- BEGIN TODO DROPDOWN -->
+            
+            <!-- END TODO DROPDOWN -->
+			
+            <!-- BEGIN USER LOGIN DROPDOWN -->
+            <li class="dropdown user">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+               <img alt="" src="../wwwroot/assets/img/avatar1_small.jpg"/>
+               <span class="username">{%USERNAME%}</span>
+               <i class="icon-angle-down"></i>
+               </a>
+               <ul class="dropdown-menu">
+                  
+                  <li><a href="javascript:;" id="trigger_fullscreen"><i class="icon-move"></i> Tela Cheia</a>
+                  </li>
+                  <li><a href="extra_lock.html"><i class="icon-lock"></i> Travar Tela</a>
+                  </li>
+                  <li><a href="javascript:;" id="PROFILELOGOUTLINK"><i class="icon-key"></i> Sair</a>
+                  </li>
+               </ul>
+            </li>
+            <!-- END USER LOGIN DROPDOWN -->
+         </ul>
+         <!-- END TOP NAVIGATION MENU -->
+      </div>
+      <!-- END TOP NAVIGATION BAR -->
+   </div>
+   <!-- END HEADER -->
+   <div class="clearfix"></div>
+   <!-- BEGIN CONTAINER -->   
+   <div class="page-container">
+      <!-- BEGIN SIDEBAR -->
+      <div class="page-sidebar navbar-collapse collapse">
+         <!-- BEGIN SIDEBAR MENU -->        
+         <ul class="page-sidebar-menu">
+            <li>
+               <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+               <div class="sidebar-toggler hidden-phone"></div>
+               <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            </li>
+            <li>
+               <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+               <div class="sidebar-search" action="extra_search.html" method="POST">
+                  <div class="form-container">
+                     
+                  </div>
+               </div>
+               <!-- END RESPONSIVE QUICK SEARCH FORM -->
+            </li>
+            <li class="active ">
+               <a href="javascript:;">
+               <i class="icon-home"></i> 
+               <span class="title">Editar Avaliação</span>
+			   <span class="selected"></span>
+               </a>
+            </li>
+			<li>
+               <a href="javascript:;" id="VOLTARLINK">
+               <i class="icon-angle-left"></i> 
+               <span class="title">Voltar</span>
+               </a>
+            </li>
+         </ul>
+         <!-- END SIDEBAR MENU -->
+      </div>
+      <!-- END SIDEBAR -->
+      <!-- BEGIN PAGE -->
+      <div class="page-content">
+         <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->               
+         <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                     <h4 class="modal-title">Modal title</h4>
+                  </div>
+                  <div class="modal-body">
+                     Widget settings form goes here
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn blue">Save changes</button>
+                     <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                  </div>
+               </div>
+               <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+         </div>
+         <!-- /.modal -->
+         <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+         <!-- BEGIN STYLE CUSTOMIZER -->
+
+         <!-- END BEGIN STYLE CUSTOMIZER -->           
+         <!-- BEGIN PAGE HEADER-->
+         <div class="row">
+            <div class="col-md-12">
+               <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+               <h3 class="page-title">
+                  Avaliação <small>de amostra</small>
+               </h3>
+               <ul class="page-breadcrumb breadcrumb">
+			      <!-- BEGIN ACTION BUTTON-->
+                  
+				  <!-- END ACTION BUTTON-->
+                  <li>
+                     <i class="icon-home"></i>
+                     <a href="#" id="VOLTARLINK">Dashboard</a> 
+                     <i class="icon-angle-right"></i>
+                  </li>
+				  <li>
+                     <a href="#" id="VOLTARLINK">Amostras</a> 
+                     <i class="icon-angle-right"></i>
+                  </li>
+                  <li><a href="#">Editar Avaliação</a></li>
+               </ul>
+               <!-- END PAGE TITLE & BREADCRUMB-->
+            </div>
+         </div>
+         <!-- END PAGE HEADER-->
+         <!-- BEGIN PAGE CONTENT-->
+		 <div class="row">
+            <div class="col-md-12">
+				<div class="portlet box">
+				   <div class="portlet-body">
+						<div class="row">
+						   <div class="col-md-4">
+							  <div class="form-group">
+								 <label class="control-label col-md-5">Data da Avaliação</label>
+								 <div class="col-md-4">
+									{%DATAAVALIACAO%}
+								 </div>
+							  </div>
+						   </div>
+						   <!--/span-->
+						   <div class="col-md-4">
+							  <div class="form-group">
+								 <label class="control-label col-md-5">Tempo de Torra (min)</label>
+								 <div class="col-md-4">
+									{%QTDETEMPOTORRA%}
+								 </div>
+							  </div>
+						   </div>
+						   <!--/span
+						   <div class="col-md-4">
+							  <div class="form-group">
+								 <label class="control-label col-md-5">Coloração da Torra</label>
+								 <div class="col-md-4">
+									{%COLORACAOTORRA%}
+								 </div>
+							  </div>
+						   </div>-->
+						</div>
+				   </div>
+				</div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-6">
+				<div class="portlet box green">
+				   <div class="portlet-title">
+					  <div class="caption"><i class="icon-reorder"></i>Avaliação Sensorial</div>
+					  <div class="tools">
+						 <a href="javascript:;" class="collapse"></a>
+						 <!--<a href="#portlet-config" data-toggle="modal" class="config"></a>
+						 <a href="javascript:;" class="reload"></a>
+						 <a href="javascript:;" class="remove"></a>-->
+					  </div>
+				   </div>
+				   <div class="portlet-body form">
+					  <!-- BEGIN FORM-->
+					  <form action="#" class="form-horizontal">
+						 <div class="form-body">
+							<!-- BEGIN ACCORDION-->
+							<div class="panel-group accordion" id="accordion1">
+								<div class="panel panel-default">
+								   <div class="panel-heading">
+									  <h4 class="panel-title">
+										 <i class="icon-signal"></i>
+										 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_1">
+											Nível de Torra (Agtron&reg;)
+										 </a>
+										 <!--<button id="btn-NOTASABOR" class="btn green btn-xs pull-right" type="button">6,00</button>-->
+									  </h4>
+								   </div>
+								   <div id="collapse_1" class="panel-collapse collapse">
+									  <div class="panel-body">
+										<div class="form-group">
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-8" style="padding-top: 12px; padding-bottom: 12px;">
+												<div id="slider-NOTACOLORACAO" class="sliderCor slider-basic bg-gradient"></div>
+												{%NOTACOLORACAO%}
+											</div>
+										</div>	
+									  </div>
+								   </div>
+								</div>
+								<div class="panel panel-default">
+								   <div class="panel-heading">
+									  <h4 class="panel-title">
+										 <i class="icon-fire"></i>
+										 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_2">
+											Fragrância / Aroma
+										 </a>
+										 <button id="btn-NOTAAROMA" class="btn red btn-xs pull-right" type="button">6,00</button>
+									  </h4>
+								   </div>
+								   <div id="collapse_2" class="panel-collapse collapse">
+									  <div class="panel-body">
+										<div class="form-group">
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-8" style="padding-top: 12px; padding-bottom: 12px;">
+												<div id="slider-NOTAAROMA" peso="1" class="sliderNota slider-basic bg-red"></div>
+												{%NOTAAROMA%}
+											</div>
+										</div>	
+										<div class="form-group">	
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-3">
+												<label>Seca</label>
+												<div id="slider-NOTAAROMASECA" class="sliderDry slider-basic bg-default"></div>
+												{%NOTAAROMASECA%}
+											</div>
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-3">
+												<label>Umida</label>
+												<div id="slider-NOTAAROMAUMIDA" class="sliderBreak slider-basic bg-default"></div>
+												{%NOTAAROMAUMIDA%}
+											</div>
+										</div>
+									  </div>
+								   </div>
+								</div>
+								<div class="panel panel-default">
+								   <div class="panel-heading">
+									  <h4 class="panel-title">
+										 <i class="icon-coffee"></i>
+										 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_3">
+											Sabor
+										 </a>
+										 <button id="btn-NOTASABOR" class="btn green btn-xs pull-right" type="button">6,00</button>
+									  </h4>
+								   </div>
+								   <div id="collapse_3" class="panel-collapse collapse">
+									  <div class="panel-body">
+										<div class="form-group">
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-8" style="padding-top: 12px; padding-bottom: 12px;">
+												<div id="slider-NOTASABOR" peso="1" class="sliderNota slider-basic bg-red"></div>
+												{%NOTASABOR%}
+											</div>
+										</div>	
+									  </div>
+								   </div>
+								</div>
+								<div class="panel panel-default">
+								   <div class="panel-heading">
+									  <h4 class="panel-title">
+										 <i class="icon-time"></i>
+										 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_4">
+											Retrogosto
+										 </a>
+										 <button id="btn-NOTARETROGOSTO" class="btn yellow btn-xs pull-right" type="button">6,00</button>
+									  </h4>
+								   </div>
+								   <div id="collapse_4" class="panel-collapse collapse">
+									  <div class="panel-body">
+										<div class="form-group">
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-8" style="padding-top: 12px; padding-bottom: 12px;">
+												<div id="slider-NOTARETROGOSTO" peso="1" class="sliderNota slider-basic bg-red"></div>
+												{%NOTARETROGOSTO%}
+											</div>
+										</div>	
+									  </div>
+								   </div>
+								</div>
+								<div class="panel panel-default">
+								   <div class="panel-heading">
+									  <h4 class="panel-title">
+									     <i class="icon-beaker"></i>
+										 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_5">
+											Acidez
+										 </a>
+										 <button id="btn-NOTAACIDEZ" class="btn green btn-xs pull-right" type="button">6,00</button>
+									  </h4>
+								   </div>
+								   <div id="collapse_5" class="panel-collapse collapse">
+									  <div class="panel-body">
+										<div class="form-group">
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-8" style="padding-top: 12px; padding-bottom: 12px;">
+												<div id="slider-NOTAACIDEZ" peso="1" class="sliderNota slider-basic bg-yellow"></div>
+												{%NOTAACIDEZ%}
+											</div>
+										</div>	
+										<div class="form-group">	
+											<div class="col-md-4">
+											</div>
+											<div class="col-md-3">
+												<label>Intensidade</label>
+												<div id="slider-NOTAACIDEZINTENSIDADE" class="sliderIntensidade slider-basic bg-red"></div>
+												{%NOTAACIDEZINTENSIDADE%}
+											</div>
+										</div>
+									  </div>
+								   </div>
+								</div>
+								<div class="panel panel-default">
+								   <div class="panel-heading">
+									  <h4 class="panel-title">
+									     <i class="icon-star"></i>
+										 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_6">
+											Corpo
+										 </a>
+										 <button id="btn-NOTACORPO" class="btn blue btn-xs pull-right" type="button">6,00</button>
+									  </h4>
+								   </div>
+								   <div id="collapse_6" class="panel-collapse collapse">
+									  <div class="panel-body">
+										<div class="form-group">
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-8" style="padding-top: 12px; padding-bottom: 12px;">
+												<div id="slider-NOTACORPO" peso="1" class="sliderNota slider-basic bg-yellow"></div>
+												{%NOTACORPO%}
+											</div>
+										</div>	
+										<div class="form-group">	
+											<div class="col-md-4">
+											</div>
+											<div class="col-md-3">
+												<label>Nível</label>
+												<div id="slider-NOTACORPONIVEL" class="sliderLevel slider-basic bg-red"></div>
+												{%NOTACORPONIVEL%}
+											</div>
+										</div>
+									  </div>
+								   </div>
+								</div>
+								<div class="panel panel-default">
+								   <div class="panel-heading">
+									  <h4 class="panel-title">
+										 <i class="icon-check"></i>
+										 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_7">
+											Uniformidade
+										 </a>
+										 <button id="btn-NOTAUNIFORMIDADE" class="btn green btn-xs pull-right" type="button">0,00</button>
+									  </h4>
+								   </div>
+								   <div id="collapse_7" class="panel-collapse collapse">
+									  <div class="panel-body">
+										<div class="form-group">
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-8" style="padding-top: 12px; padding-bottom: 12px;">
+												<div id="slider-NOTAUNIFORMIDADE" peso="2" class="sliderXicaras slider-basic bg-yellow"></div>
+												{%NOTAUNIFORMIDADE%}
+											</div>
+										</div>	
+									  </div>
+								   </div>
+								</div>
+								<div class="panel panel-default">
+								   <div class="panel-heading">
+									  <h4 class="panel-title">
+										 <i class="icon-adjust"></i>
+										 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_8">
+											Balanço
+										 </a>
+										 <button id="btn-NOTABALANCO" class="btn red btn-xs pull-right" type="button">6,00</button>
+									  </h4>
+								   </div>
+								   <div id="collapse_8" class="panel-collapse collapse">
+									  <div class="panel-body">
+										<div class="form-group">
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-8" style="padding-top: 12px; padding-bottom: 12px;">
+												<div id="slider-NOTABALANCO" peso="1" class="sliderNota slider-basic bg-yellow"></div>
+												{%NOTABALANCO%}
+											</div>
+										</div>	
+									  </div>
+								   </div>
+								</div>
+								<div class="panel panel-default">
+								   <div class="panel-heading">
+									  <h4 class="panel-title">
+										 <i class="icon-thumbs-up"></i>
+										 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_9">
+											Xícara Limpa
+										 </a>
+										 <button id="btn-NOTAXICARALIMPA" class="btn dark btn-xs pull-right" type="button">0,00</button>
+									  </h4>
+								   </div>
+								   <div id="collapse_9" class="panel-collapse collapse">
+									  <div class="panel-body">
+										<div class="form-group">
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-8" style="padding-top: 12px; padding-bottom: 12px;">
+												<div id="slider-NOTAXICARALIMPA" peso="2" class="sliderXicaras slider-basic bg-yellow"></div>
+												{%NOTAXICARALIMPA%}
+											</div>
+										</div>	
+									  </div>
+								   </div>
+								</div>
+								<div class="panel panel-default">
+								   <div class="panel-heading">
+									  <h4 class="panel-title">
+										 <i class="icon-heart"></i>
+										 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_10">
+											Doçura
+										 </a>
+										 <button id="btn-NOTADOCURA" class="btn purple btn-xs pull-right" type="button">0,00</button>
+									  </h4>
+								   </div>
+								   <div id="collapse_10" class="panel-collapse collapse">
+									  <div class="panel-body">
+										<div class="form-group">
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-8" style="padding-top: 12px; padding-bottom: 12px;">
+												<div id="slider-NOTADOCURA" peso="2" class="sliderXicaras slider-basic bg-yellow"></div>
+												{%NOTADOCURA%}
+											</div>
+										</div>	
+									  </div>
+								   </div>
+								</div>
+								<div class="panel panel-default">
+								   <div class="panel-heading">
+									  <h4 class="panel-title">
+									     <i class="icon-dashboard"></i>
+										 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_11">
+											Geral
+										 </a>
+										 <button id="btn-NOTAGERAL" class="btn purple btn-xs pull-right" type="button">6,00</button>
+									  </h4>
+								   </div>
+								   <div id="collapse_11" class="panel-collapse collapse">
+									  <div class="panel-body">
+										<div class="form-group">
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-8" style="padding-top: 12px; padding-bottom: 12px;">
+												<div id="slider-NOTAGERAL" peso="1" class="sliderNota slider-basic bg-yellow"></div>
+												{%NOTAGERAL%}
+											</div>
+										</div>	
+									  </div>
+								   </div>
+								</div>
+								<div class="panel panel-default">
+								   <div class="panel-heading">
+									  <h4 class="panel-title">
+									     <i class="icon-thumbs-down"></i>
+										 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_12">
+											Defeitos
+										 </a>
+										 <button id="btn-DEFEITOS" class="btn default btn-xs pull-right" type="button">0,00</button>
+									  </h4>
+								   </div>
+								   <div id="collapse_12" class="panel-collapse collapse">
+									  <div class="panel-body">
+										<div class="form-group">	
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-3">
+												<label>Leves (x2)</label>
+												<div id="slider-NOTAXICARASDEFEITOSLEVES" peso="-2" class="sliderDefeitos sliderSmall slider-basic bg-default"></div>
+												{%NOTAXICARASDEFEITOSLEVES%}
+											</div>	
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-3">
+												<label>Graves (x4)</label>
+												<div id="slider-NOTAXICARASDEFEITOSGRAVES" peso="-4" class="sliderDefeitos slider-basic bg-default"></div>
+												{%NOTAXICARASDEFEITOSGRAVES%}
+											</div>
+										</div>
+									  </div>
+								   </div>
+								</div>
+								<div class="panel panel-default">
+								   <div class="panel-heading">
+									  <h4 class="panel-title">
+									     <i class="icon-pencil"></i>
+										 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_13">
+											Observações
+										 </a>
+									  </h4>
+								   </div>
+								   <div id="collapse_13" class="panel-collapse collapse">
+									  <div class="panel-body">
+										<div class="form-group">	
+											<div class="col-md-12">
+												{%OBS%}
+											</div>	
+										</div>
+									  </div>
+								   </div>
+								</div>
+							 </div>
+							 <!--END ACCORDION-->
+						    
+							<h3 class="form-section">Nota Final</h3>
+					
+							<div class="form-group">
+							   <label  class="col-md-3 control-label">Nota Final</label>
+							   <div class="col-md-4">
+								   {%PONTUACAOFINAL%}
+							   </div>
+							</div>
+							<div class="form-group last">
+							   <div class="col-md-4">
+								   {%EDITADOPOR%}
+							   </div>
+							</div>
+							<div id="polarChart"> </div>
+						</div>
+						<!-- Botões-->	
+						<div class="form-actions fluid">
+							<div class="col-md-offset-3 col-md-9">
+								<button id="SALVARBTN" type="submit" class="btn green">Salvar</button>
+								<button id="CANCELARBTN" type="button" class="btn default">Cancelar</button>
+							</div>
+						</div>
+					  </form>
+					  <!-- END FORM-->                
+				    </div>
+				</div>
+            </div>
+			<!-- SABOR -->
+			<div class="col-md-6">
+				<div class="portlet box green">
+				   <div class="portlet-title">
+					  <div class="caption"><i class="icon-reorder"></i>Rosa de Sabores</div>
+					  <div class="tools">
+						 <a href="javascript:;" class="collapse"></a>
+						 <!--<a href="#portlet-config" data-toggle="modal" class="config"></a>
+						 <a href="javascript:;" class="reload"></a>
+						 <a href="javascript:;" class="remove"></a>-->
+					  </div>
+				   </div>
+				   <!--BEGIN ROSA DE SABORES-->
+				   <div class="portlet-body form">
+					  <!-- BEGIN FORM-->
+						<div class="form-body">
+							<h3 class="form-section">Selecione os Sabores</h3>
+							<div class="form-group">
+								   <label  class="col-md-3 control-label">Aromas e Gostos</label>
+								   <div class="col-md-8">
+									  <input type="hidden" multiple="multiple" id="saborescombo">
+								   </div>
+							</div>
+							<!--BEGIN PREDOMINANCIA-->
+							<h3 class="form-section">Ajuste da Predominância</h3>
+							<div id="predominancia">
+								<!--<div class="form-group">
+								   <label  class="col-md-3 control-label">Chocolate</label>
+								   <div class="col-md-8">
+									  <div class="sliderNota slider-basic bg-red"></div>
+								   </div>
+								</div>-->
+							</div>	
+							<h3 class="form-section">Rosa de Sabores</h3>
+							<div id="rosa"> </div>
+							<!--END PREDOMINANCIA-->
+						</div>
+					  <!-- END FORM-->                
+				   </div>
+				   <!--END ROSA DE SABORES-->
+				</div>
+            </div>
+         </div>
+         <!-- END PAGE CONTENT-->
+      </div>
+      <!-- END PAGE -->    
+   </div>
+   <!-- END CONTAINER -->
+   <!-- BEGIN FOOTER -->
+   <div class="footer">
+      <div class="footer-inner">
+         2015 &copy; AgTracer
+      </div>
+      <div class="footer-tools">
+         <span class="go-top">
+         <i class="icon-angle-up"></i>
+         </span>
+      </div>
+   </div>
+   <!-- END FOOTER -->
+   <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+   <!-- BEGIN CORE PLUGINS -->   
+   <!--[if lt IE 9]>
+   <script src="assets/plugins/respond.min.js"></script>
+   <script src="assets/plugins/excanvas.min.js"></script> 
+   <![endif]-->   
+   <script src="assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+   <script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>     
+   <script src="assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>    
+   <script src="assets/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js" type="text/javascript"></script>    
+   <script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+   <script src="assets/plugins/bootstrap/js/bootstrap2-typeahead.min.js" type="text/javascript"></script>
+   <script src="assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript" ></script>
+   <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+   <script src="assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>  
+   <script src="assets/plugins/jquery.cookie.min.js" type="text/javascript"></script>
+   <script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript" ></script>
+   <!-- END CORE PLUGINS -->
+   <!-- BEGIN PAGE LEVEL PLUGINS -->
+   <script type="text/javascript" src="assets/plugins/ckeditor/ckeditor.js"></script>  
+   <script type="text/javascript" src="assets/plugins/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+   <script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
+   <script type="text/javascript" src="assets/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script> 
+   <script type="text/javascript" src="assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+   <script type="text/javascript" src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+   <script type="text/javascript" src="assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+   <script type="text/javascript" src="assets/plugins/clockface/js/clockface.js"></script>
+   <script type="text/javascript" src="assets/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+   <script type="text/javascript" src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script> 
+   <script type="text/javascript" src="assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>  
+   <script type="text/javascript" src="assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+   <script type="text/javascript" src="assets/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js"></script>   
+   <script type="text/javascript" src="assets/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+   <script type="text/javascript" src="assets/plugins/jquery-multi-select/js/jquery.quicksearch.js"></script>   
+   <script src="assets/plugins/jquery.pwstrength.bootstrap/src/pwstrength.js" type="text/javascript" ></script>
+   <script src="assets/plugins/bootstrap-switch/static/js/bootstrap-switch.min.js" type="text/javascript" ></script>
+   <script src="assets/plugins/jquery-tags-input/jquery.tagsinput.min.js" type="text/javascript" ></script>
+   <script src="assets/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript" ></script>
+   <script src="assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript" ></script>
+   <!-- END PAGE LEVEL PLUGINS -->
+   <!-- BEGIN PAGE LEVEL SCRIPTS -->
+   <script src="assets/scripts/new_app.js"></script>
+   <script src="assets/scripts/editarAvaliacao.js"></script>
+   <script src="assets/scripts/ui-jqueryui-sliders.js"></script>
+     <!-- Touch support to JQuery UI Sliders -->
+   <script src="assets/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+     <!-- Prettify JQuery UI Sliders -->
+   <script src="assets/plugins/jquery-ui-slider-pips/jquery-ui-slider-pips.js" type="text/javascript"></script>
+     <!-- Highcharts -->
+   <script src="assets/plugins/highcharts/js/highcharts.js"></script>
+   <script src="assets/plugins/highcharts/js/highcharts-more.js"></script>
+   <script src="assets/plugins/highcharts/js/modules/exporting.js"></script>
+   <!-- END PAGE LEVEL SCRIPTS -->
+   <script>
+      jQuery(document).ready(function() {       
+         // initiate layout and plugins
+         App.init();
+		 Avaliacao.init();
+      });
+   </script>
+
+   <!-- END JAVASCRIPTS --> 
+</body>
+<!-- END BODY -->
+</html>

@@ -1,0 +1,21 @@
+
+#iw-container .iw-title {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 5px;
+	background-color: #48b5e9;
+	color: white;
+	margin: 0;
+	border-radius: 2px 2px 0 0;
+}
+
+.iw-content img {
+	float: right;
+	margin: 0 5px 5px 10px;	
+}
+.iw-subTitle {
+	font-size: 16px;
+	font-weight: 700;
+	padding: 5px 0;
+}

@@ -1,0 +1,15 @@
+ .bg-gradient {
+  background-image: none !important;
+  border-color: none !important;
+  /*background: linear-gradient(to right, #141D1A 10%, #3A3F38 20%, #404139 30%, #695D4D 40%, #635646 50%, #6A584A 60%, #7E654F 70%, #896F58 80%, #B6927A 90%, #A69B7F 100%) !important;*/
+  /*background: linear-gradient(to right, #141D1A, #3A3F38, #404139, #695D4D, #635646, #6A584A, #7E654F, #896F58, #B6927A, #A69B7F) !important;*/
+  background: linear-gradient(to right, #141D1A,  #404139,  #635646,  #7E654F,  #B6927A, #A69B7F) !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  border: none !important;
+  height: 10px !important; }
+  
+.bg-gradient .ui-slider-handle {
+    background: none !important;
+	border: 3px solid #fbd850 !important;
+}
